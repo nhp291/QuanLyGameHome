@@ -37,12 +37,12 @@ public class GUIHoaDon extends javax.swing.JFrame {
     Object rowData[] = new Object[9];
     for (HoaDon hd : list) {
         rowData[0] = hd.getMaHD();
-        rowData[1] = hd.getTenKH();
-        rowData[2] = hd.getTenNV();                         
+        rowData[1] = hd.getMaKH();
+        rowData[2] = hd.getMaNV();                         
         rowData[3] = hd.getMaMay();
-        rowData[4] = hd.getTenMA();
-        rowData[5] = hd.getTenDU();
-        rowData[6] = hd.getLoaiThe();
+        rowData[4] = hd.getMaMA();
+        rowData[5] = hd.getMaDU();
+        rowData[6] = hd.getMaThe();
         rowData[7] = hd.getTongTien();
         rowData[8] = hd.getThoiGianXuatHD();
         model.addRow(rowData);
@@ -52,9 +52,9 @@ public class GUIHoaDon extends javax.swing.JFrame {
   public HoaDon getHoaDon() {
     HoaDon hoaDon = new HoaDon();
     hoaDon.setMaHD(txtmaHD.getText());
-    hoaDon.setTenKH(txtmaMay.getText());
+    hoaDon.setMaKH(txtmaMay.getText());
     hoaDon.setMaMay(txtmaKH.getText());
-    hoaDon.setTenNV(txtmaNV.getText());
+    hoaDon.setMaNV(txtmaNV.getText());
     hoaDon.setTongTien(Double.parseDouble(txtTongTien.getText()));
     return hoaDon;
 }

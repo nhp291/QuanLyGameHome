@@ -13,7 +13,7 @@ public class KhachHang {
     private String TenKH;
     private String TaiKhoanKH;
     private String MatKhauKH;
-    private double NgaySinhKH;
+    private String NgaySinhKH;
     private double SoDu;
     private String MaNV;
     private String sdt;
@@ -22,7 +22,7 @@ public class KhachHang {
     public KhachHang() {
     }
 
-    public KhachHang(String MaKH, String TenKH, String TaiKhoanKH, String MatKhauKH, double NgaySinhKH, double SoDu, String MaNV, String sdt, String Email) {
+    public KhachHang(String MaKH, String TenKH, String TaiKhoanKH, String MatKhauKH, String NgaySinhKH, double SoDu, String MaNV, String sdt, String Email) {
         this.MaKH = MaKH;
         this.TenKH = TenKH;
         this.TaiKhoanKH = TaiKhoanKH;
@@ -66,11 +66,11 @@ public class KhachHang {
         this.MatKhauKH = MatKhauKH;
     }
 
-    public double getNgaySinhKH() {
+    public String getNgaySinhKH() {
         return NgaySinhKH;
     }
 
-    public void setNgaySinhKH(double NgaySinhKH) {
+    public void setNgaySinhKH(String NgaySinhKH) {
         this.NgaySinhKH = NgaySinhKH;
     }
 
@@ -105,6 +105,7 @@ public class KhachHang {
     public void setEmail(String Email) {
         this.Email = Email;
     }
+
     
     
 }

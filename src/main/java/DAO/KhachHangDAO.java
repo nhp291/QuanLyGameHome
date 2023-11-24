@@ -55,7 +55,7 @@ public class KhachHangDAO extends DinoGaming<KhachHang, String>{
                 kh.setTenKH(rs.getString("TenKH"));
                 kh.setTaiKhoanKH(rs.getString("TaiKhoanKH"));
                 kh.setMatKhauKH(rs.getString("MatKhauKH"));
-                kh.setNgaySinhKH(rs.getDouble("NgaySinhKH"));
+                kh.setNgaySinhKH(rs.getString("NgaySinhKH"));
                 kh.setSoDu(rs.getDouble("SoDu"));
                 kh.setMaNV(rs.getString("MaNV"));
                 kh.setSdt(rs.getString("sdt"));

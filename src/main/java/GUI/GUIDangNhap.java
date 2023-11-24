@@ -2,6 +2,7 @@ package GUI;
 
 import DAO.KhachHangDAO;
 import DAO.NhanVienDAO;
+import Entity.KhachHang;
 import Utils.Auth;
 import Entity.NhanVien;
 import Utils.Dialog;
@@ -15,15 +16,13 @@ import javax.swing.JComponent;
 import javax.swing.JOptionPane;
 import javax.swing.KeyStroke;
 
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 public class GUIDangNhap extends javax.swing.JFrame {
 
     NhanVienDAO nvdao = new NhanVienDAO();
     KhachHangDAO khDAo = new KhachHangDAO();
 //    GUINhanVien nhanVien = new GUINhanVien();
+//    GUIKhachHang khachHang = new GUIKhachHang();
+    GUIEmail email = new GUIEmail();
 
     public GUIDangNhap() {
         initComponents();
@@ -41,7 +40,7 @@ public class GUIDangNhap extends javax.swing.JFrame {
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         btnDangNhap = new javax.swing.JButton();
-        jLabel3 = new javax.swing.JLabel();
+        lblQuenMatKhau = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         btnClose = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
@@ -111,7 +110,13 @@ public class GUIDangNhap extends javax.swing.JFrame {
             }
         });
 
-        jLabel3.setText("Quên Mật Khẩu");
+        lblQuenMatKhau.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        lblQuenMatKhau.setText("Quên Mật Khẩu");
+        lblQuenMatKhau.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblQuenMatKhauMouseClicked(evt);
+            }
+        });
 
         jLabel1.setBackground(new java.awt.Color(0, 51, 153));
         jLabel1.setFont(new java.awt.Font("Segoe UI Black", 1, 36)); // NOI18N
@@ -183,7 +188,7 @@ public class GUIDangNhap extends javax.swing.JFrame {
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(chkcheck, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jLabel3))
+                                .addComponent(lblQuenMatKhau))
                             .addComponent(btnDangNhap, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(txtpass)
                             .addGroup(jPanel1Layout.createSequentialGroup()
@@ -196,7 +201,7 @@ public class GUIDangNhap extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(167, 167, 167)
                         .addComponent(jLabel5)
-                        .addContainerGap(167, Short.MAX_VALUE))
+                        .addContainerGap())
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -222,7 +227,7 @@ public class GUIDangNhap extends javax.swing.JFrame {
                 .addComponent(txtpass, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(12, 12, 12)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
+                    .addComponent(lblQuenMatKhau)
                     .addComponent(chkcheck))
                 .addGap(32, 32, 32)
                 .addComponent(btnDangNhap, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -250,40 +255,47 @@ public class GUIDangNhap extends javax.swing.JFrame {
             System.exit(0);
         }
     }
+    
 
     private void login() {
         String TaiKhoan = txtuser.getText();
         String MatKhau = new String(txtpass.getText());
         NhanVien nv = nvdao.selectById(TaiKhoan);
-        Entity.KhachHang kh = khDAo.selectById(TaiKhoan);
-//        Entity.KhachHang kh = khDAo.selectById(TaiKhoan);
-//        KhachHang kh = khDAo.selectById(TaiKhoanNV);
-
+        KhachHang kh = khDAo.selectById(TaiKhoan);
+        
         if (TaiKhoan.equals("")) {
-            Dialog.alert(this, "Sai tên đăng nhập!");
-        }
-        if (TaiKhoan.equals(nv.getTaiKhoanNV())) {
-            if (MatKhau.equals(nv.getMatKhauNV())) {
-                Dialog.alert(this, "Đăng nhập thành công nhan vien:" + nv.getTenNV() + "!");
-                Auth.user = nv;
-                this.dispose();
-                GUI.GUINhanVien nhanvien = new GUI.GUINhanVien();
-                nhanvien.setVisible(true);
-            } else {
-                JOptionPane.showMessageDialog(this, "Sai mat khau nhan vien!", "Thong bao!", JOptionPane.ERROR_MESSAGE);
+            Dialog.alert(this, "Tài khoản không được để trống!");
+        }else if(MatKhau.equals("")) {
+            Dialog.alert(this, "Mật khẩu không được để trống!");
+        }else{
+            try {
+              if (TaiKhoan.equals(nv.getTaiKhoanNV())) {
+                  if (MatKhau.equals(nv.getMatKhauNV())) {
+                      Dialog.alert(this, "Đăng nhập thành công nhân viên: " + nv.getTenNV() + "!");
+                      Auth.user = nv;
+                      this.dispose();
+                      GUINhanVien nhanVien = new GUINhanVien();
+                      nhanVien.setVisible(true);
+                  } else {
+                      JOptionPane.showMessageDialog(this, "Sai tên đăng nhập hoặc mật khẩu!", "Thông báo!", JOptionPane.ERROR_MESSAGE);
+                  }
+              }
+                if (TaiKhoan.equals(kh.getTaiKhoanKH())) {
+                    if (MatKhau.equals(kh.getMatKhauKH())) {
+                        Dialog.alert(this, "Đăng nhập thành công khách hàng: " + kh.getTenKH() + "!");
+                        Auth.user = nv;
+                        this.dispose();
+                        GUIKhachHang khachHang = new GUIKhachHang();
+                        khachHang.setVisible(true);
+                    } else {
+                        JOptionPane.showMessageDialog(this, "Sai tên đăng nhập hoặc mật khẩu!", "Thông báo!", JOptionPane.ERROR_MESSAGE);
+                    }
+                }
+            } catch (Exception e) {
+                System.out.println(e);
             }
         }
-        if (TaiKhoan.equals(kh.getTaiKhoanKH())) {
-            if (MatKhau.equals(kh.getMatKhauKH())) {
-                Dialog.alert(this, "Đăng nhập thành công nhan vien:" + kh.getTenKH() + "!");
-                Auth.user = nv;
-                this.dispose();
-                GUIOrder order = new GUIOrder();
-                order.setVisible(true);
-            } else {
-                JOptionPane.showMessageDialog(this, "Sai mat khau khach hang!", "Thong bao!", JOptionPane.ERROR_MESSAGE);
-            }
-        }
+
     }
 
     private void btnCloseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCloseActionPerformed
@@ -341,9 +353,11 @@ public class GUIDangNhap extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_txtuserKeyPressed
 
-    /**
-     * @param args the command line arguments
-     */
+    private void lblQuenMatKhauMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblQuenMatKhauMouseClicked
+        email = new GUIEmail();
+        email.setVisible(true);
+    }//GEN-LAST:event_lblQuenMatKhauMouseClicked
+
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -389,13 +403,13 @@ public class GUIDangNhap extends javax.swing.JFrame {
     private javax.swing.JCheckBox chkcheck;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel3;
+    private javax.swing.JLabel lblQuenMatKhau;
     private javax.swing.JPasswordField txtpass;
     private javax.swing.JTextField txtuser;
     // End of variables declaration//GEN-END:variables

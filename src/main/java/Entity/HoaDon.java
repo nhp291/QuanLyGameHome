@@ -7,25 +7,25 @@ public class HoaDon {
     private double TongTien;
     private Date ThoiGianXuatHD;
     private String MaMay;
-    private String tenKH;
-    private String tenNV;
-    private String tenMA;
-    private String tenDU;
-    private String loaiThe;
+    private String MaKH;
+    private String MaNV;
+    private String MaMA;
+    private String MaDU;
+    private String MaThe;
 
     public HoaDon() {
     }
 
-    public HoaDon(String MaHD, double TongTien, Date ThoiGianXuatHD, String MaMay, String tenKH, String tenNV, String tenMA, String tenDU, String loaiThe) {
+    public HoaDon(String MaHD, double TongTien, Date ThoiGianXuatHD, String MaMay, String MaKH, String MaNV, String MaMA, String MaDU, String MaThe) {
         this.MaHD = MaHD;
         this.TongTien = TongTien;
         this.ThoiGianXuatHD = ThoiGianXuatHD;
         this.MaMay = MaMay;
-        this.tenKH = tenKH;
-        this.tenNV = tenNV;
-        this.tenMA = tenMA;
-        this.tenDU = tenDU;
-        this.loaiThe = loaiThe;
+        this.MaKH = MaKH;
+        this.MaNV = MaNV;
+        this.MaMA = MaMA;
+        this.MaDU = MaDU;
+        this.MaThe = MaThe;
     }
 
     public String getMaHD() {
@@ -60,43 +60,44 @@ public class HoaDon {
         this.MaMay = MaMay;
     }
 
-    public String getTenKH() {
-        return tenKH;
+    public String getMaKH() {
+        return MaKH;
     }
 
-    public void setTenKH(String tenKH) {
-        this.tenKH = tenKH;
+    public void setMaKH(String MaKH) {
+        this.MaKH = MaKH;
     }
 
-    public String getTenNV() {
-        return tenNV;
+    public String getMaNV() {
+        return MaNV;
     }
 
-    public void setTenNV(String tenNV) {
-        this.tenNV = tenNV;
+    public void setMaNV(String MaNV) {
+        this.MaNV = MaNV;
     }
 
-    public String getTenMA() {
-        return tenMA;
+    public String getMaMA() {
+        return MaMA;
     }
 
-    public void setTenMA(String tenMA) {
-        this.tenMA = tenMA;
+    public void setMaMA(String MaMA) {
+        this.MaMA = MaMA;
     }
 
-    public String getTenDU() {
-        return tenDU;
+    public String getMaDU() {
+        return MaDU;
     }
 
-    public void setTenDU(String tenDU) {
-        this.tenDU = tenDU;
+    public void setMaDU(String MaDU) {
+        this.MaDU = MaDU;
     }
 
-    public String getLoaiThe() {
-        return loaiThe;
+    public String getMaThe() {
+        return MaThe;
     }
 
-    public void setLoaiThe(String loaiThe) {
-        this.loaiThe = loaiThe;
+    public void setMaThe(String MaThe) {
+        this.MaThe = MaThe;
     }
+
 }
