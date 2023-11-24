@@ -51,7 +51,6 @@ public class GUINhanVien extends javax.swing.JFrame {
         btnTrangChu = new javax.swing.JButton();
         btnThucDon = new javax.swing.JButton();
         lblMain = new javax.swing.JLabel();
-        btnDoiMatKhau = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         lblTieuDe = new javax.swing.JLabel();
         jTextField1 = new javax.swing.JTextField();
@@ -156,18 +155,6 @@ public class GUINhanVien extends javax.swing.JFrame {
             }
         });
 
-        btnDoiMatKhau.setBackground(new java.awt.Color(0, 0, 51));
-        btnDoiMatKhau.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        btnDoiMatKhau.setForeground(new java.awt.Color(255, 255, 255));
-        btnDoiMatKhau.setIcon(new javax.swing.ImageIcon(getClass().getResource("/quanlyduan1/Icon/DoiMatKhau.png"))); // NOI18N
-        btnDoiMatKhau.setText("Đổi mật khẩu");
-        btnDoiMatKhau.setBorder(null);
-        btnDoiMatKhau.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnDoiMatKhauActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -187,7 +174,6 @@ public class GUINhanVien extends javax.swing.JFrame {
                         .addGap(63, 63, 63)
                         .addComponent(DangXuat, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addComponent(btnDoiMatKhau, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -206,9 +192,7 @@ public class GUINhanVien extends javax.swing.JFrame {
                 .addComponent(btnThucDon, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
                 .addComponent(btnThongKe, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnDoiMatKhau, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 143, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 199, Short.MAX_VALUE)
                 .addComponent(DangXuat, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(14, 14, 14))
         );
@@ -375,16 +359,6 @@ public class GUINhanVien extends javax.swing.JFrame {
         this.setVisible(false);
     }//GEN-LAST:event_DangXuatActionPerformed
 
-    private void btnDoiMatKhauActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDoiMatKhauActionPerformed
-        lblTieuDe.setText("Đổi mật khẩu");
-//        DMK.setVisible(true);
-        thongke.setVisible(false);
-        trangchu.setVisible(false);
-        may.setVisible(false);
-        hoadon.setVisible(false);
-        thucdon.setVisible(false);
-    }//GEN-LAST:event_btnDoiMatKhauActionPerformed
-
     /**
      * @param args the command line arguments
      */
@@ -429,7 +403,6 @@ public class GUINhanVien extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton DangXuat;
-    private javax.swing.JButton btnDoiMatKhau;
     private javax.swing.JButton btnHoaDon;
     private javax.swing.JButton btnPhongMay;
     private javax.swing.JButton btnTaoTK;

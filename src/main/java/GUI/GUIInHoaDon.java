@@ -33,6 +33,7 @@ public class GUIInHoaDon extends JFrame {
 
     public GUIInHoaDon() {
         initComponents(); 
+        setLocationRelativeTo(null);
     }
 
     public GUIInHoaDon(GUIHoaDon guiHoaDon) {

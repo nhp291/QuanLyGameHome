@@ -4,6 +4,7 @@ import DAO.KhachHangDAO;
 import DAO.NhanVienDAO;
 import Entity.KhachHang;
 import Utils.Auth;
+import Utils.XAuth;
 import Entity.NhanVien;
 import Utils.Dialog;
 import java.awt.Color;
@@ -256,7 +257,6 @@ public class GUIDangNhap extends javax.swing.JFrame {
         }
     }
     
-
     private void login() {
         String TaiKhoan = txtuser.getText();
         String MatKhau = new String(txtpass.getText());
@@ -280,19 +280,18 @@ public class GUIDangNhap extends javax.swing.JFrame {
                       JOptionPane.showMessageDialog(this, "Sai tên đăng nhập hoặc mật khẩu!", "Thông báo!", JOptionPane.ERROR_MESSAGE);
                   }
               }
+            } catch (Exception e) {
                 if (TaiKhoan.equals(kh.getTaiKhoanKH())) {
                     if (MatKhau.equals(kh.getMatKhauKH())) {
                         Dialog.alert(this, "Đăng nhập thành công khách hàng: " + kh.getTenKH() + "!");
-                        Auth.user = nv;
+                        XAuth.staff = kh;
                         this.dispose();
                         GUIKhachHang khachHang = new GUIKhachHang();
                         khachHang.setVisible(true);
                     } else {
                         JOptionPane.showMessageDialog(this, "Sai tên đăng nhập hoặc mật khẩu!", "Thông báo!", JOptionPane.ERROR_MESSAGE);
                     }
-                }
-            } catch (Exception e) {
-                System.out.println(e);
+                }            
             }
         }
 
@@ -354,6 +353,7 @@ public class GUIDangNhap extends javax.swing.JFrame {
     }//GEN-LAST:event_txtuserKeyPressed
 
     private void lblQuenMatKhauMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblQuenMatKhauMouseClicked
+        this.dispose();
         email = new GUIEmail();
         email.setVisible(true);
     }//GEN-LAST:event_lblQuenMatKhauMouseClicked

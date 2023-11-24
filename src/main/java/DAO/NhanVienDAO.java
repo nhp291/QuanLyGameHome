@@ -38,11 +38,7 @@ public class NhanVienDAO extends DinoGaming<NhanVien, String> {
     public NhanVien selectById(String key) {
         List<NhanVien> list = selectBySql(SELECT_BY_ID, key);
         return list.size() > 0 ? list.get(0) : null;
-//        List<NhanVien> list = selectBySql(SELECT_BY_ID, id);
-//        if(list.isEmpty()){
-//            return null;
-//        }
-//        return list.get(0);
+
     }
     
 

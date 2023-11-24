@@ -1,5 +1,6 @@
 package Utils;
 
+import Entity.KhachHang;
 import Entity.NhanVien;
 
 
@@ -24,6 +25,7 @@ public class Auth {
     /*
      * Kiểm tra xem đã đăng nhập hay chưa
      */
+    
     public static boolean isLogin() {
         return Auth.user != null;
     }
