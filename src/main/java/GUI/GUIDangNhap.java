@@ -21,8 +21,6 @@ public class GUIDangNhap extends javax.swing.JFrame {
 
     NhanVienDAO nvdao = new NhanVienDAO();
     KhachHangDAO khDAo = new KhachHangDAO();
-//    GUINhanVien nhanVien = new GUINhanVien();
-//    GUIKhachHang khachHang = new GUIKhachHang();
     GUIEmail email = new GUIEmail();
 
     public GUIDangNhap() {
