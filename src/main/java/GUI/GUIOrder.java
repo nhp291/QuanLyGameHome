@@ -1490,8 +1490,8 @@ private void handleButtonClick(JButton clickedButton) {
 
     private void btnDangXuatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDangXuatActionPerformed
         this.dispose();
-        GUIDangNhap dangnhap =  new GUIDangNhap();
-        dangnhap.setVisible(true);
+        GUIKhachHang khachhang = new GUIKhachHang();
+        khachhang.setVisible(true);
     }//GEN-LAST:event_btnDangXuatActionPerformed
 
     private void btnGosuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGosuActionPerformed

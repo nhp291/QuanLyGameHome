@@ -1,7 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
+
 package GUI;
 
 import DAO.KhachHangDAO;
@@ -18,7 +15,6 @@ public class GUIKhachHang extends javax.swing.JFrame {
 
     KhachHangDAO khdao = new KhachHangDAO();
     KhachHang khachHang = new KhachHang();
-    GUIOrder Order = new GUIOrder();
     
     
     
@@ -255,7 +251,8 @@ public class GUIKhachHang extends javax.swing.JFrame {
     }//GEN-LAST:event_btnPhanHoiActionPerformed
 
     private void btnDIchVuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDIchVuActionPerformed
-        new GUIOrder();
+        GUIOrder order = new GUIOrder();
+        order.setVisible(true);
     }//GEN-LAST:event_btnDIchVuActionPerformed
 
     private void btnLSGDichActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLSGDichActionPerformed
